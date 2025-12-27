@@ -1,0 +1,28 @@
+interface Service {
+    int getServiceCost();
+}
+
+class BikeService implements Service {
+    public int getServiceCost() {
+        return 500;
+    }
+}
+
+class CarService implements Service {
+    public int getServiceCost() {
+        return 1500;
+    }
+}
+
+public class VehicleServiceApp {
+    public static void main(String[] args) {
+
+        Service s;
+
+        s = new BikeService();
+        System.out.println("Bike Service Cost: ₹" + s.getServiceCost());
+
+        s = new CarService();
+        System.out.println("Car Service Cost: ₹" + s.getServiceCost());
+    }
+}
