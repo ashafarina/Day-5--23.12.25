@@ -1,0 +1,33 @@
+ import java.util.*;
+
+public class LibraryFineChecker {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        ArrayList<String> students = new ArrayList<>();
+        HashMap<String, Integer> fine = new HashMap<>();
+
+        System.out.print("Enter number of students: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Name: ");
+            String name = sc.nextLine();
+            System.out.print("Fine Amount: ");
+            int amount = sc.nextInt();
+            sc.nextLine();
+
+            students.add(name);
+            fine.put(name, amount);
+        }
+
+        System.out.println("\nStudents with Pending Fine:");
+        for (String s : students) {
+            if (fine.get(s) > 0) {
+                System.out.println(s + " - ₹" + fine.get(s));
+            }
+        }
+    }
+}
