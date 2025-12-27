@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class StudentReport {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            FileWriter fw = new FileWriter("report.txt");
+            fw.write("Name: Asha\nMarks: 85\nResult: Pass");
+            fw.close();
+
+            FileReader fr = new FileReader("report.txt");
+            int ch;
+            System.out.println("Student Report:");
+            while ((ch = fr.read()) != -1) {
+                System.out.print((char) ch);
+            }
+            fr.close();
+
+        } catch (Exception e) {
+            System.out.println("File error");
+        }
+    }
+}
