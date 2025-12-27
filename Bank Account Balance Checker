@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+class InsufficientFundsException extends Exception {
+    InsufficientFundsException(String msg) {
+        super(msg);
+    }
+}
+
+class BankAccount {
+    int balance = 5000;
+
+    void withdraw(int amount) throws InsufficientFundsException {
+        if (amount > balance)
+            throw new InsufficientFundsException("Not enough balance");
+        balance -= amount;
+        System.out.println("Withdrawal successful");
+        System.out.println("Remaining Balance: ₹" + balance);
+    }
+}
+
+public class BankApp {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        BankAccount acc = new BankAccount();
+
+        try {
+            System.out.print("Enter withdrawal amount: ");
+            int amt = sc.nextInt();
+            acc.withdraw(amt);
+        } catch (InsufficientFundsException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
