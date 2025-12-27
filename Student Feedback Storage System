@@ -1,0 +1,27 @@
+ import java.io.*;
+import java.util.Scanner;
+
+public class StudentFeedback {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            FileWriter fw = new FileWriter("feedback.txt");
+            System.out.print("Enter feedback: ");
+            fw.write(sc.nextLine());
+            fw.close();
+
+            FileReader fr = new FileReader("feedback.txt");
+            int ch;
+            System.out.println("\nSaved Feedback:");
+            while ((ch = fr.read()) != -1) {
+                System.out.print((char) ch);
+            }
+            fr.close();
+
+        } catch (Exception e) {
+            System.out.println("File Error");
+        }
+    }
+}
